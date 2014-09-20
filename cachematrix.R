@@ -21,6 +21,9 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
+	## check that the matrix is square
+
+	if (dim(x$get())[1] != dim(x$get())[2]) stop('matrix is not square')
         m <- x$getinverse()
         if(!is.null(m)) {
                 message("getting cached data")
